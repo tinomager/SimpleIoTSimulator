@@ -39,8 +39,9 @@ var connectCallback = function (err) {
       // Create a message and send it to the IoT Hub every 10 seconds
       setInterval(function(){
           sendData(); 
-      }, 10000);
+      }, config.send_interval_ms);
     }
 };
 
+console.log("Trying to connect with connectionstring: " + config.connection_string)
 client.open(connectCallback);
